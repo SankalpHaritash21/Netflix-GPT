@@ -56,10 +56,3 @@ https://github.com/akshaymarch7/netflix-gpt/blob/main/src/utils/constants.js
 
 https://netflixgpt-67959.web.app/
 
-# Test User
-
-1.  mario@gmail.com
-    Mario@123456
-
-2.  test@gmail.com
-    Test@123456
