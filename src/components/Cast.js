@@ -28,29 +28,28 @@ const Cast = ({ id }) => {
   }, []);
 
   const sliderSettings = {
-    infinite: true,
-    slidesToShow: 9,
+    infinite: false, // Disable infinite scrolling
+    slidesToShow: Math.min(9, cast?.length || 1), // Limit the number of slides
     slidesToScroll: 1,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: Math.min(4, cast?.length || 1),
           slidesToScroll: 1,
-          infinite: true,
         },
       },
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: Math.min(4, cast?.length || 1),
           slidesToScroll: 1,
         },
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: Math.min(2, cast?.length || 1),
           slidesToScroll: 1,
         },
       },
@@ -68,10 +67,11 @@ const Cast = ({ id }) => {
       sliderRef.current.slickPrev();
     }
   };
+  const filteredCast = cast?.filter((item) => item.profile_path !== null);
   return (
     <div className="px-10 p-4">
       <Slider ref={sliderRef} {...sliderSettings} className="overflow-hidden">
-        {cast?.map((item) => (
+        {filteredCast?.map((item) => (
           <CastCard
             key={item.id}
             profilePath={item.profile_path}

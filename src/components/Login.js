@@ -113,7 +113,7 @@ const Login = () => {
       </div>*/}
       <form
         action=""
-        className="p-5 md:p-12 flex flex-col absolute w-72 md:w-1/2  lg:w-3/12 gap-y-1  lg:gap-y-4 bg-black my-28 mx-auto left-0 right-0 bg-opacity-70 rounded-t-xl no-outline"
+        className="p-5 md:p-10 flex flex-col absolute w-72 md:w-1/2  lg:w-3/12 gap-y-1  lg:gap-y-4 bg-black my-28 mx-auto left-0 right-0 bg-opacity-70 rounded-t-xl no-outline"
         onSubmit={(e) => e.preventDefault()}
       >
         <h1 className="text-white font-bold text-3xl">
@@ -125,7 +125,7 @@ const Login = () => {
             ref={name}
             type="text"
             placeholder="Full Name"
-            className="p-4 m-2 w-full bg-gray-600 rounded-xl"
+            className="p-4 m-1 w-full bg-gray-600 rounded-xl"
           />
         )}
 
@@ -133,16 +133,16 @@ const Login = () => {
           ref={email}
           type="text"
           placeholder="Email Address"
-          className="p-4 m-2 w-full bg-gray-600 rounded-xl"
+          className="p-4 m-1 w-full bg-gray-600 rounded-xl"
         />
 
         <input
           ref={password}
           type="password"
           placeholder="Password"
-          className="p-4 m-2 w-full bg-gray-600 rounded-xl"
+          className="p-4 m-1 w-full bg-gray-600 rounded-xl"
         />
-        <p className="text-red-600 text-lg p-2">{errorMessage}</p>
+        <p className="text-red-600 text-sm p-2">{errorMessage}</p>
         <button
           className="p-4 m-2 bg-red-600 font-bold rounded-2xl text-white w-full"
           onClick={handleButtonClick}
