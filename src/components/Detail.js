@@ -36,7 +36,19 @@ const Detail = () => {
 
   const handleView = () => {
     setView(!view);
+    if (!view) {
+      const iframeElement = document.getElementById("trailerIframe");
+
+      if (iframeElement) {
+        iframeElement.focus();
+        iframeElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }
   };
+
   if (!details) {
     return <Loading />;
   }
@@ -64,12 +76,15 @@ const Detail = () => {
           onClick={() => window.history.back()}
         />
       </div>
-      <div className="flex font-bold text-sm lg:text-3xl justify-center text-center text-white">
+      <div
+        className="flex font-bold text-lg lg:text-3xl justify-center text-center text-white"
+        id="trailerIframe"
+      >
         {original_title}
       </div>
       <div className="p-4">
         <div className=" bg-black text-white pt-5 justify-between flex flex-col lg:flex-row">
-          <div className="p-2 md:w-[100rem] md:h-[30rem] flex items-center justify-center mt-5 md:mt-16 overflow-hidden">
+          <div className="p-2 md:w-[100rem] md:h-[30rem] flex items-center justify-center mt-1 md:mt-16 overflow-hidden">
             {!view && poster_path && (
               <img
                 alt="Movie Card"

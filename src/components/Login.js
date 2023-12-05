@@ -142,7 +142,7 @@ const Login = () => {
           placeholder="Password"
           className="p-4 m-1 w-full bg-gray-600 rounded-xl"
         />
-        <p className="text-red-600 text-sm p-2">{errorMessage}</p>
+        <p className="text-red-600 text-sm p-2 animate-pulse">{errorMessage}</p>
         <button
           className="p-4 m-2 bg-red-600 font-bold rounded-2xl text-white w-full"
           onClick={handleButtonClick}
@@ -156,8 +156,8 @@ const Login = () => {
             onClick={toggleSignInForm}
           >
             {isSignInForm
-              ? "Already a user Sign Up"
-              : "New to Netflix? Sign In"}
+              ? "New to Netflix? Sign Up"
+              : "Already a user Sign In"}
           </p>
         </p>
         <p className="text-white text-xs">
