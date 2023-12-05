@@ -7,8 +7,8 @@ const VideoTitle = ({ id, title, overview }) => {
     navigate(`/detail/${id}`);
   };
   return (
-    <div className="w-screen aspect-video pt-[20%]  md:px-24 absolute text-white bg-gradient-to-r from-black">
-      <h1 className="text-2xl md:text-6xl font-bold">{title}</h1>
+    <div className="w-full aspect-video pt-[20%] pl-4 md:px-24 absolute text-white bg-gradient-to-r from-black">
+      <h1 className="text-lg md:text-2xl lg:text-6xl font-bold">{title}</h1>
       <p className="hidden md:inline-block py-6 w-1/3 text-base">{overview}</p>
       <div className="my-4 md:m-0">
         <button

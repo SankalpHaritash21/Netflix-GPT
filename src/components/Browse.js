@@ -12,7 +12,7 @@ const Browse = () => {
   useUpcoming();
 
   return (
-    <div className="bg-black">
+    <div className="bg-black select-none">
       <Header />
       {/*
       - MainContainer

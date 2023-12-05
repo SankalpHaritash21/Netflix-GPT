@@ -10,7 +10,7 @@ const MovieCard = ({ id, posterPath }) => {
   };
 
   return (
-    <div className="w-36 md:w-40 pr-4">
+    <div className="ml-2 w-32 md:w-36 lg:w-40 pr-4">
       <button onClick={handleNavigate}>
         <img
           alt="Movie Card"

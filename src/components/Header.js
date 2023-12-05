@@ -50,14 +50,14 @@ const Header = () => {
   };
 
   return (
-    <div className="absolute py-2 px-8 bg-gradient-to-b from-black z-50 flex justify-between items-center w-full">
+    <div className="absolute py-2 px-8 bg-gradient-to-b from-black z-50 flex justify-between items-center w-full select-none">
       <img
-        className="w-44 no-outline"
+        className="w-28 lg:w-44 no-outline"
         src={Netflix_Logo}
         alt="logo"
         srcset=""
       />
-      <div>
+      <div className="bg-blue-600 w-full flex flex-col items-end">
         {user && (
           <div className="flex w-56 items-center justify-center flex-col">
             <img
@@ -70,8 +70,8 @@ const Header = () => {
         )}
 
         {drop && (
-          <div className="relative font-bold text-xl text-white bg-black translate-y-7 h-0">
-            <div className="bg-black opacity-70 flex flex-col justify-center items-center p-5">
+          <div className="relative font-bold text-xl text-white bg-black translate-y-7 h-0 -translate-x-28">
+            <div className="bg-black opacity-80 flex flex-col justify-center items-center p-5">
               <div>welcome {user?.displayName}</div>
               <hr className="w-full bg-white mt-1 mb-1" />
               <div>

@@ -46,7 +46,7 @@
 28. Tailwind classes to make Main Container it look good.
 29. usePopularMovies and useUpcoming custom hook.
 30. Movie Detail page.
-31.
+31. GPT search feature.
 
 # Refer
 

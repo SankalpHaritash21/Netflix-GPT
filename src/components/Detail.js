@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import useMovieTrailer from "../hooks/useMovieTrailer";
 import TriangleImage from "../img/navigate-back-white.svg";
 import Cast from "./Cast";
+import Loading from "./Loading";
 
 const Detail = () => {
   const [view, setView] = useState(false);
@@ -31,13 +32,13 @@ const Detail = () => {
 
   useEffect(() => {
     detail();
-  }, []);
+  }, [id]);
 
   const handleView = () => {
     setView(!view);
   };
   if (!details) {
-    return <p>Loading...</p>;
+    return <Loading />;
   }
 
   const {
@@ -67,19 +68,19 @@ const Detail = () => {
         {original_title}
       </div>
       <div className="p-4">
-        <div className=" bg-black text-white pt-5 justify-between flex">
-          <div className=" w-[100rem] h-[30rem] flex items-center justify-center mt-16 overflow-hidden">
+        <div className=" bg-black text-white pt-5 justify-between flex flex-col lg:flex-row">
+          <div className="p-2 md:w-[100rem] md:h-[30rem] flex items-center justify-center mt-5 md:mt-16 overflow-hidden">
             {!view && poster_path && (
               <img
                 alt="Movie Card"
                 src={"https://image.tmdb.org/t/p/w500/" + poster_path}
-                className="rounded-2xl w-fit h-[30rem]"
+                className="rounded-2xl w-fit h-44 lg:h-[30rem]"
               />
             )}
             {view && (
               <div className="w-full flex items-center justify-center">
                 <iframe
-                  className="w-[30rem] h-[30rem] top-40 left-10"
+                  className="w-[30rem] lg:h-[30rem] lg:top-40 lg:left-10"
                   src={
                     "https://www.youtube.com/embed/" +
                     trailerVideo?.key +
@@ -92,11 +93,11 @@ const Detail = () => {
             )}
           </div>
 
-          <div className="gap-y-5 py-4 flex flex-col items-center text-lg h-fit p-3">
-            <div className="text-left my-2">{overview}</div>
+          <div className="gap-y-5 py-4 flex flex-col items-center text-sm md:text-lg h-fit p-3">
+            <div className="text-left my-1 md:my-2">{overview}</div>
 
             <div className="flex flex-col items-start w-full">
-              <div className="my-3 mt-5">
+              <div className="my-3 mt-2 md:mt-5">
                 runtime: {(runtime / 60).toFixed(2)}hr
               </div>
               <div className="my-2">budget: {budget / 1000000}Cr.</div>
@@ -106,13 +107,13 @@ const Detail = () => {
               <div className="my-2">vote: {vote_average}/10</div>
               <div className="my-2">popular: {popularity}</div>
             </div>
-            <div className="mt-2 w-full">
+            <div className="md:mt-2 w-full">
               <div className="mb-5">genres:</div>
-              <div>
+              <div className="flex flex-wrap text-sm md:text-lg">
                 {genres.map((item) => (
                   <span
                     key={item.id}
-                    className="border-2 border-white bg-white text-black rounded-2xl p-2 ml-3"
+                    className="border-2 border-white bg-white text-black rounded-2xl p-1 ml-1 md:ml-3"
                   >
                     {item.name}
                   </span>
@@ -121,15 +122,15 @@ const Detail = () => {
             </div>
             <button
               onClick={handleView}
-              className="border-2 border-white bg-white text-black rounded-2xl px-4 py-2 mt-3"
+              className="border-2 border-white bg-white text-black rounded-2xl px-2 md:px-4 py-2 mt-3"
             >
               {view ? "Hide" : "Show"} Trailer
             </button>
           </div>
         </div>
 
-        <div className="flex flex-col text-white mt-10">
-          <div className="flex items-start justify-center pl-0 text-3xl font-semibold p-2">
+        <div className="flex flex-col text-white mt-4 md:mt-10">
+          <div className="flex items-start justify-start text-lg  md:text-3xl font-semibold p-2">
             Casts:
           </div>
           <div className="mt-5">

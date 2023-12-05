@@ -10,16 +10,16 @@ const MovieList = ({ title, movies }) => {
   const sliderRef = useRef(null);
 
   const sliderSettings = {
-    infinite: true,
+    infinite: false, // Set infinite to false to disable infinite movement
     slidesToShow: 8,
     slidesToScroll: 1,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 5,
           slidesToScroll: 1,
-          infinite: true,
+          infinite: false,
         },
       },
       {
@@ -52,8 +52,10 @@ const MovieList = ({ title, movies }) => {
   };
 
   return (
-    <div className="px-10 ">
-      <h1 className="text-lg md:text-3xl py-4 text-white">{title}</h1>
+    <div className="px-5 lg:px-7">
+      <h1 className="text-sm lg:text-lg md:text-2xl py-4 text-white">
+        {title}
+      </h1>
       <Slider ref={sliderRef} {...sliderSettings} className="overflow-hidden">
         {movies?.map((movie) => (
           <MovieCard
@@ -63,16 +65,16 @@ const MovieList = ({ title, movies }) => {
           />
         ))}
       </Slider>
-      <div className="mt-2 flex justify-between">
+      <div className="hidden mt-2 md:flex justify-between">
         <button
           onClick={handlePrev}
-          className="bg-white text-white mr-2 -translate-y-32 -translate-x-10 rounded-full h-10 w-10"
+          className="bg-white text-white -translate-y-28 md:-translate-y-32 -translate-x-8 rounded-full h-10 w-10"
         >
           <img src={leftA} alt="Left Arrow" />
         </button>
         <button
           onClick={handleNext}
-          className="bg-white text-white -translate-y-32 translate-x-3 rounded-full h-10 w-10"
+          className="bg-white text-white -translate-y-28  lg:-translate-y-32 lg:translate-x-6 translate-x-4 rounded-full h-10 w-10"
         >
           <img src={rightA} alt="Right Arrow" className="h-10 w-10" />
         </button>

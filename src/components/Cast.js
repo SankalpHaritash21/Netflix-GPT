@@ -13,8 +13,7 @@ const Cast = ({ id }) => {
 
   const Cast = async () => {
     const d = await fetch(
-      `
-        https://api.themoviedb.org/3/movie/${id}/credits`,
+      `https://api.themoviedb.org/3/movie/${id}/credits`,
       API_OPTIONS
     );
 
@@ -69,7 +68,7 @@ const Cast = ({ id }) => {
   };
   const filteredCast = cast?.filter((item) => item.profile_path !== null);
   return (
-    <div className="px-10 p-4">
+    <div className="px-5 md:px-10 p-4 w-full">
       <Slider ref={sliderRef} {...sliderSettings} className="overflow-hidden">
         {filteredCast?.map((item) => (
           <CastCard
@@ -80,7 +79,7 @@ const Cast = ({ id }) => {
           />
         ))}
       </Slider>
-      <div className="mt-2 flex justify-between">
+      <div className="mt-2 hidden md:flex justify-between">
         <button
           onClick={handlePrev}
           className="bg-white text-white mr-2 -translate-y-36 -translate-x-10 rounded-full h-10 w-10"
