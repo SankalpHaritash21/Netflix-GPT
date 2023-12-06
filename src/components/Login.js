@@ -10,11 +10,14 @@ import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { Netflix_background, User_Avatar } from "../utils/constant";
+import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
 
 const Login = () => {
   const [isSignInForm, setSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const dispatch = useDispatch();
+  const [visible, setVisible] = useState(false);
+  const [paassword, setPaassword] = useState("");
 
   const name = useRef(null);
   const email = useRef(null);
@@ -28,7 +31,6 @@ const Login = () => {
 
   const handleButtonClick = () => {
     //validate form data.
-
     try {
       const msg = checkValidData(email.current.value, password.current.value);
       setErrorMessage(msg);
@@ -136,12 +138,22 @@ const Login = () => {
           className="p-4 m-1 w-full bg-gray-600 rounded-xl"
         />
 
-        <input
-          ref={password}
-          type="password"
-          placeholder="Password"
-          className="p-4 m-1 w-full bg-gray-600 rounded-xl"
-        />
+        <div className="flex items-center justify-center">
+          <input
+            ref={password}
+            value={paassword}
+            type={visible ? "text" : "password"}
+            placeholder="Password"
+            onChange={(e) => setPaassword(e.target.value)}
+            className="p-4 my-4 w-full bg-gray-700 rounded-xl"
+          />
+          <button
+            onClick={() => setVisible(!visible)}
+            className="w-0 -translate-x-6 text-white"
+          >
+            {visible ? <EyeInvisibleOutlined /> : <EyeOutlined />}
+          </button>
+        </div>
         <p className="text-red-600 text-sm p-2 animate-pulse">{errorMessage}</p>
         <button
           className="p-4 m-2 bg-red-600 font-bold rounded-2xl text-white w-full"
