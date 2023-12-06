@@ -151,7 +151,7 @@ const Login = () => {
             onClick={() => setVisible(!visible)}
             className="w-0 -translate-x-6 text-white"
           >
-            {visible ? <EyeInvisibleOutlined /> : <EyeOutlined />}
+            {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
           </button>
         </div>
         <p className="text-red-600 text-sm p-2 animate-pulse">{errorMessage}</p>

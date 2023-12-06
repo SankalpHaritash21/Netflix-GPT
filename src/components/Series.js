@@ -6,6 +6,7 @@ import TriangleImage from "../img/navigate-back-white.svg";
 import Cast from "./Cast";
 import Loading from "./Loading";
 import useSeriesTrailer from "../hooks/useSeriesTrailer";
+import Background from "../img/BG.jpg";
 
 const Series = () => {
   const [view, setView] = useState(false);
@@ -65,14 +66,19 @@ const Series = () => {
   } = details;
   return (
     <div
-      className="bg-black min-h-screen opacity-90
+      className="min-h-screen opacity-90
        flex flex-col text-white"
+      style={{
+        backgroundImage: `url(${Background})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
     >
       <div className="flex items-start pt-4 h-10 overflow-hidden p-3 lg:pl-10">
         <img
           src={TriangleImage}
           alt="goback"
-          className="bg-black text-white w-3 h-3 md:w-6 md:h-6 hover:cursor-pointer"
+          className="text-white w-3 h-3 md:w-6 md:h-6 hover:cursor-pointer"
           onClick={() => window.history.back()}
         />
       </div>
@@ -83,7 +89,7 @@ const Series = () => {
         {name}
       </div>
       <div className="p-4">
-        <div className=" bg-black text-white pt-5 justify-between flex flex-col lg:flex-row">
+        <div className="text-white pt-5 justify-between flex flex-col lg:flex-row">
           <div className="p-2 md:w-[100rem] md:h-[30rem] flex items-center justify-center mt-1 md:mt-16 overflow-hidden">
             {!view && poster_path && (
               <img
@@ -128,19 +134,21 @@ const Series = () => {
                 {genres.map((item) => (
                   <span
                     key={item.id}
-                    className="border-2 border-white bg-white text-black rounded-2xl p-1 ml-1 md:ml-3"
+                    className=" border-2 border-white bg-gradient-to-b from-[#a20000] to-[#3e0000] text-white rounded-xl p-1 md:p-2 ml-1 my-2 md:ml-3"
                   >
                     {item.name}
                   </span>
                 ))}
               </div>
             </div>
-            <button
-              onClick={handleView}
-              className="border-2 border-white bg-white text-black rounded-2xl px-2 md:px-4 py-2 mt-3"
-            >
-              {view ? "Hide" : "Show"} Trailer
-            </button>
+            <div className="flex justify-start items-center w-full">
+              <button
+                onClick={handleView}
+                className="border-2 border-white bg-gradient-to-b from-[#a20000] to-[#3e0000] text-white rounded-2xl px-2 md:px-4 py-2 mt-3"
+              >
+                {view ? "Hide" : "Show"} Trailer
+              </button>
+            </div>
           </div>
         </div>
 
