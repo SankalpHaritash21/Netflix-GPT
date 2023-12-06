@@ -51,15 +51,17 @@ const MovieList = ({ title, movies }) => {
     }
   };
 
+  const filteredMovies = movies?.filter((item) => item.poster_path !== null);
   return (
     <div className="px-5 lg:px-7">
       <h1 className="text-sm lg:text-lg md:text-2xl py-4 text-white">
         {title}
       </h1>
       <Slider ref={sliderRef} {...sliderSettings} className="overflow-hidden">
-        {movies?.map((movie) => (
+        {filteredMovies?.map((movie) => (
           <MovieCard
             key={movie.id}
+            title={title}
             posterPath={movie.poster_path}
             id={movie.id}
           />

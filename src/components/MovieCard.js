@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { IMG_CDN_URL } from "../utils/constant";
 
-const MovieCard = ({ id, posterPath }) => {
+const MovieCard = ({ title, id, posterPath }) => {
   const navigate = useNavigate();
   if (!posterPath) return null;
 
   const handleNavigate = () => {
-    navigate(`/detail/${id}`);
+    title === "Web Series" ? navigate(`/TV/${id}`) : navigate(`/detail/${id}`);
   };
 
   return (

@@ -5,6 +5,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { RouterProvider } from "react-router-dom";
 import Error from "./Error";
 import Detail from "./Detail";
+import Series from "./Series";
 
 const Body = () => {
   const appRouter = createBrowserRouter([
@@ -23,6 +24,10 @@ const Body = () => {
     {
       path: "/detail/:id",
       element: <Detail />,
+    },
+    {
+      path: "/TV/:id",
+      element: <Series />,
     },
   ]);
 

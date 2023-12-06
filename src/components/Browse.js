@@ -5,11 +5,17 @@ import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
 import usePopularMovies from "../hooks/usePopularMovies";
 import useUpcoming from "../hooks/useUpcoming";
+import useTrendingMovies from "../hooks/useTrendingMovie";
+import useHorrorMovies from "../hooks/useHorrorMovies";
+import useWebSeries from "../hooks/useWebSeries";
 
 const Browse = () => {
   useNowPlayingMovies();
   usePopularMovies();
   useUpcoming();
+  useTrendingMovies();
+  useHorrorMovies();
+  useWebSeries();
 
   return (
     <div className="bg-black select-none">
