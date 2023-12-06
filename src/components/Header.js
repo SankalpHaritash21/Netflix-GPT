@@ -57,11 +57,11 @@ const Header = () => {
         alt="logo"
         srcset=""
       />
-      <div className="bg-blue-600 w-full flex flex-col items-end">
+      <div className="w-full flex flex-col items-end">
         {user && (
-          <div className="flex w-56 items-center justify-center flex-col">
+          <div className="flex w-56 items-center justify-end p-4">
             <img
-              className="w-10 h-10 rounded-full absolute"
+              className="w-10 h-10 rounded-full absolute text-white border-1 border-white"
               src={user?.photoURL}
               alt="user Avatar"
               onClick={handleDrop}
@@ -70,8 +70,8 @@ const Header = () => {
         )}
 
         {drop && (
-          <div className="relative font-bold text-xl text-white bg-black translate-y-7 h-0 -translate-x-28">
-            <div className="bg-black opacity-80 flex flex-col justify-center items-center p-5">
+          <div className="relative font-bold text-sm md:text-base lg:text-xl text-white bg-black translate-y-2 h-0 -translate-x-8">
+            <div className="bg-black opacity-80 flex flex-col justify-center items-center p-5 rounded-xl border-2 border-gray-400">
               <div>welcome {user?.displayName}</div>
               <hr className="w-full bg-white mt-1 mb-1" />
               <div>

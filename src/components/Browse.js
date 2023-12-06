@@ -20,6 +20,8 @@ const Browse = () => {
   return (
     <div className="bg-black select-none">
       <Header />
+      <MainContainer />
+      <SecondaryContainer />
       {/*
       - MainContainer
         - VideoBackground
@@ -28,8 +30,6 @@ const Browse = () => {
         - Movielist*n 
         - cards*n 
        */}
-      <MainContainer />
-      <SecondaryContainer />
     </div>
   );
 };
