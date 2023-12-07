@@ -52,10 +52,6 @@
 
 https://github.com/akshaymarch7/netflix-gpt/blob/main/src/utils/constants.js
 
-# Hosted link:
-
-https://netflixgpt-67959.web.app/
-
 # Test User
 
 1. mario@gmail.com
